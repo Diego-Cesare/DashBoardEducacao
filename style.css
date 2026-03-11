@@ -105,6 +105,9 @@ h3 p {
   display: flex;
   align-items: center;
   justify-content: start;
+  background-color: var(--bg);
+  padding: 10px;
+  border-radius: 10px;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 25px;
