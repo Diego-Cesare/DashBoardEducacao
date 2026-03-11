@@ -33,6 +33,52 @@ const filtroEquipe = document.getElementById("filtro-equipe");
 const dataInicio = document.getElementById("data-inicio");
 const dataFim = document.getElementById("data-fim");
 
+// Theme: default follows system; button sets manual override (persisted).
+const THEME_STORAGE_KEY = "dashboard-theme"; // "light" | "dark" | "system"
+const themeToggleBtn = document.getElementById("themeToggle");
+const systemThemeMql = window.matchMedia("(prefers-color-scheme: dark)");
+
+function getSystemTheme() {
+  return systemThemeMql.matches ? "dark" : "light";
+}
+
+function getStoredThemeMode() {
+  const v = localStorage.getItem(THEME_STORAGE_KEY);
+  if (v === "light" || v === "dark" || v === "system") return v;
+  return "system";
+}
+
+function setStoredThemeMode(mode) {
+  if (mode === "system") localStorage.removeItem(THEME_STORAGE_KEY);
+  else localStorage.setItem(THEME_STORAGE_KEY, mode);
+}
+
+function applyThemeMode(mode) {
+  if (mode === "light" || mode === "dark") {
+    document.documentElement.setAttribute("data-theme", mode);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+  updateThemeToggleLabel(mode);
+}
+
+function getEffectiveTheme(mode) {
+  return mode === "system" ? getSystemTheme() : mode;
+}
+
+function updateThemeToggleLabel(mode) {
+  if (!themeToggleBtn) return;
+
+  if (mode === "system") {
+    const effective = getSystemTheme();
+    themeToggleBtn.textContent =
+      effective === "dark" ? "Modo Claro (Auto)" : "Modo Escuro (Auto)";
+    return;
+  }
+
+  themeToggleBtn.textContent = mode === "dark" ? "Modo Claro" : "Modo Escuro";
+}
+
 const cores = [
   "#ef476f",
   "#ffd166",
@@ -346,22 +392,27 @@ btnExportar.addEventListener("click", () => {
   XLSX.writeFile(workbook, "manutencoes.xlsx");
 });
 
-function toggleTheme() {
-  const temaAtual = document.documentElement.getAttribute("data-theme");
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", (event) => {
+    const currentMode = getStoredThemeMode();
 
-  if (temaAtual === "dark") {
-    document.documentElement.setAttribute("data-theme", "light");
-    toggle.textContent = "Modo Escuro";
-  } else {
-    document.documentElement.setAttribute("data-theme", "dark");
-    toggle.textContent = "Modo Claro";
-  }
+    // Shift+click: return to system theme mode.
+    if (event.shiftKey) {
+      setStoredThemeMode("system");
+      applyThemeMode("system");
+      return;
+    }
+
+    const effective = getEffectiveTheme(currentMode);
+    const nextMode = effective === "dark" ? "light" : "dark";
+    setStoredThemeMode(nextMode);
+    applyThemeMode(nextMode);
+  });
 }
 
-const toggle = document.getElementById("themeToggle");
-
-toggle.addEventListener("click", () => {
-  toggleTheme();
+// Update in real-time when system theme changes (only if in system mode).
+systemThemeMql.addEventListener("change", () => {
+  if (getStoredThemeMode() === "system") applyThemeMode("system");
 });
 
-toggleTheme();
+applyThemeMode(getStoredThemeMode());
