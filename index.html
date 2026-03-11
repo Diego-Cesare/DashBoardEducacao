@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Manutenção</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Dashboard de Manutenção</h1>
+      <button class="toggle-theme" id="themeToggle">Modo Claro</button>
+
+      <div class="filters">
+        <div class="filters-box">
+          <span>Unidades</span>
+        <select id="filtro-unidade">
+          <option value="">Todas unidades</option>
+        </select>
+        </div>
+
+        <div class="filters-box">
+          <span>Equipes</span>
+        <select id="filtro-equipe">
+          <option value="">Todas equipes</option>
+        </select>
+        </div>
+
+        <div class="filters-box">
+          <span>Inicio</span>
+        <input type="date" id="data-inicio" />
+        </div>
+        <div class="filters-box">
+          <span>Fim</span>
+        <input type="date" id="data-fim" />
+        </div>
+
+        <div class="filters-box">
+          Filtro
+        <button id="btnFiltrar">Aplicar regras do filtro</button>
+        </div>
+      </div>
+
+      <div class="cards-team">
+        <ul>
+          <li>
+            <img src="img/eduardo.jpg" alt="user image" />
+            <div class="content">
+              <h3>Eduardo</h3>
+              <p id="eduardo-num"></p>
+              <p><b>Equipe</b>: Eron, Douglas</p>
+              <p></p>
+              <p id="eduardo-status"></p>
+            </div>
+          </li>
+          <li>
+            <img src="img/baco.jpg" alt="user image" />
+            <div class="content">
+              <h3>Everaldo (Baco)</h3>
+              <p id="everaldo-num"></p>
+              <p><b>Equipe</b>: Membro1, Membro2</p>
+              <p id="everaldo-status"></p>
+            </div>
+          </li>
+          <li>
+            <img src="img/andre.jpg" alt="user image" />
+            <div class="content">
+              <h3>André (Batata)</h3>
+              <p id="andre-num"></p>
+              <p></b>Equipe</b>: Membro1, Membro2</p>
+              <p id="andre-status"></p>
+            </div>
+          </li>
+          <li>
+            <img src="img/rui.jpg" alt="user image" />
+            <div class="content">
+              <h3>Rui</h3>
+              <p id="rui-num"></p>
+              <p></b>Equipe</b>: Membro1, Membro2</p>
+              <p id="rui-status"></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cards">
+        <div class="kpi">
+          <h3>Total de Manutenções</h3>
+          <p id="totalManut"></p>
+        </div>
+
+        <div class="kpi">
+          <h3>Unidades Atendidas</h3>
+          <p id="totalUnidades"></p>
+        </div>
+
+        <div class="kpi">
+          <h3>Equipes Ativas</h3>
+          <p id="totalEquipes"></p>
+        </div>
+
+        <div class="kpi">
+          <h3>Tipos Diferentes</h3>
+          <p id="totalTipos"></p>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="chart-card">
+          <h3>Unidades</h3>
+          <canvas id="graficoUnidades"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Equipes</h3>
+          <canvas id="graficoEquipes"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Tipos</h3>
+          <canvas id="graficoTipos"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Meses</h3>
+          <canvas id="graficoMes"></canvas>
+        </div>
+      </div>
+      <div class="tabela">
+        <h1>
+          Histórico de Manutenções
+          <div class="buttons">
+          <button class="show-table" id="showtable">
+            <i class="ph ph-caret-down"></i>
+          </button>
+          <button class="hidden" id="exportarExcel">
+  Exportar Excel
+</button>
+</div>
+        </h1>
+        <table class="hidden" id="tabelaRegistros">
+          <thead>
+            <tr>
+              <th>Unidade</th>
+              <th>Equipe</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+
+          <tbody id="dados"></tbody>
+        </table>
+      </div>
+    </div>
+    <script type="module" src="script.js"></script>
+    <script src="src/doomactions.js"></script>
+  </body>
+</html>
