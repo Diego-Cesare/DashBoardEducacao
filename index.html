@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <meta
       name="theme-color"
@@ -27,36 +27,40 @@
 
   <body>
     <div class="container">
-      <h1>Dashboard de Manutenção</h1>
-      <button class="toggle-theme" id="themeToggle">Modo Claro</button>
-
+      <header>
+        <div class="title">
+          <h1>Dashboard de Manutenção</h1>
+          <a href="orders.html">Requisições</a>
+        </div>
+        <button class="toggle-theme" id="themeToggle">Modo Claro</button>
+      </header>
       <div class="filters">
         <div class="filters-box">
           <span>Unidades</span>
-        <select id="filtro-unidade">
-          <option value="">Todas unidades</option>
-        </select>
+          <select id="filtro-unidade">
+            <option value="">Todas unidades</option>
+          </select>
         </div>
 
         <div class="filters-box">
           <span>Equipes</span>
-        <select id="filtro-equipe">
-          <option value="">Todas equipes</option>
-        </select>
+          <select id="filtro-equipe">
+            <option value="">Todas equipes</option>
+          </select>
         </div>
 
         <div class="filters-box">
           <span>Inicio</span>
-        <input type="date" id="data-inicio" />
+          <input type="date" id="data-inicio" />
         </div>
         <div class="filters-box">
           <span>Fim</span>
-        <input type="date" id="data-fim" />
+          <input type="date" id="data-fim" />
         </div>
 
         <div class="filters-box">
           Filtro
-        <button id="btnFiltrar">Aplicar regras do filtro</button>
+          <button id="btnFiltrar">Aplicar regras do filtro</button>
         </div>
       </div>
 
@@ -68,7 +72,6 @@
               <h3>Eduardo</h3>
               <p id="eduardo-num"></p>
               <p><b>Equipe</b>: Eron, Douglas</p>
-              <p></p>
               <p id="eduardo-status"></p>
             </div>
           </li>
@@ -86,7 +89,7 @@
             <div class="content">
               <h3>André (Batata)</h3>
               <p id="andre-num"></p>
-              <p></b>Equipe</b>: Membro1, Membro2</p>
+              <p><b>Equipe</b>: Membro1, Membro2</p>
               <p id="andre-status"></p>
             </div>
           </li>
@@ -95,7 +98,7 @@
             <div class="content">
               <h3>Rui</h3>
               <p id="rui-num"></p>
-              <p></b>Equipe</b>: Membro1, Membro2</p>
+              <p><b>Equipe</b>: Membro1, Membro2</p>
               <p id="rui-status"></p>
             </div>
           </li>
@@ -146,17 +149,15 @@
         </div>
       </div>
       <div class="tabela">
-        <h1>
-          Histórico de Manutenções
+        <div class="tabela-header">
+          <h1>Histórico de Manutenções</h1>
           <div class="buttons">
-          <button class="show-table" id="showtable">
-            <i class="ph ph-caret-down"></i>
-          </button>
-          <button class="hidden" id="exportarExcel">
-  Exportar Excel
-</button>
-</div>
-        </h1>
+            <button class="show-table" id="showtable">
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <button class="hidden" id="exportarExcel">Exportar Excel</button>
+          </div>
+        </div>
         <table class="hidden" id="tabelaRegistros">
           <thead>
             <tr>

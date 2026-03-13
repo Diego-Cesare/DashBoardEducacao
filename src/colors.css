@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Borel&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+:root {
+  color-scheme: light dark;
+
+  /* Light theme (default) */
+  --bg: #f4f6fb60;
+  --card: #ffffff75;
+  --text: #1f2937;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-hover: #5289ff;
+
+  /* Used for native select dropdowns (best-effort). */
+  --dropdown: #ffffff;
+  --focus-ring: rgba(37, 99, 235, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000ab;
+    --card: #00000046;
+    --text: #f1f5f9;
+    --border: #334155;
+    --primary: #3b82f6;
+    --primary-hover: #5289ff;
+
+    --dropdown: #0b1220;
+    --focus-ring: rgba(59, 130, 246, 0.35);
+  }
+}
+
+/* Manual override via JS (keeps the system theme as default). */
+[data-theme="light"] {
+  --bg: #f4f6fb60;
+  --card: #ffffff75;
+  --text: #1f2937;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-hover: #5289ff;
+  --dropdown: #ffffff;
+  --focus-ring: rgba(37, 99, 235, 0.35);
+}
+
+[data-theme="dark"] {
+  --bg: #000000ab;
+  --card: #00000046;
+  --text: #f1f5f9;
+  --border: #334155;
+  --primary: #3b82f6;
+  --primary-hover: #5289ff;
+  --dropdown: #0b1220;
+  --focus-ring: rgba(59, 130, 246, 0.35);
+}

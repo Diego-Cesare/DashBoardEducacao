@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f4f6fb"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#000000"
+    />
+    <title>Dashboard de Manutenção</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link rel="stylesheet" href="src/orders.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Requizições de Manutenção</h1>
+      <a href="index.html">Voltar</a>
+    </header>
+    <main>
+      <div class="sidebar">
+        <h1>Unidades</h1>
+        <button id="show-all">Todos os pedidos</button>
+        <ul id="add-unit"></ul>
+      </div>
+      <div class="order-container">
+        <table id="order-table">
+          <thead>
+            <tr>
+              <th>Requerente</th>
+              <th>Assunto</th>
+              <th>Descrição</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody id="order-data"></tbody>
+        </table>
+      </div>
+    </main>
+    <script type="module" src="./src/order.js"></script>
+  </body>
+</html>
