@@ -258,11 +258,12 @@ function atualizarDashboard() {
 }
 
 function carregarUnidades() {
-  const unidades = [...new Set(registros.map((r) => r.unidade))];
+  const unidades = [
+    ...new Set(registros.map((r) => r.unidade).filter(Boolean)),
+  ];
 
   unidades.forEach((u) => {
     const op = document.createElement("option");
-
     op.value = u;
     op.textContent = u;
 
@@ -271,11 +272,10 @@ function carregarUnidades() {
 }
 
 function carregarEquipes() {
-  const equipes = [...new Set(registros.map((r) => r.equipe))];
+  const equipes = [...new Set(registros.map((r) => r.equipe).filter(Boolean))];
 
   equipes.forEach((u) => {
     const op = document.createElement("option");
-
     op.value = u;
     op.textContent = u;
 
