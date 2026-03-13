@@ -81,7 +81,15 @@ function contar(lista, campo) {
   const cont = {};
 
   lista.forEach((r) => {
-    const valor = r[campo] || "Não informado";
+    let valor;
+
+    if (campo === "unidade") {
+      valor = r.unidade || r.requerente;
+    } else {
+      valor = r[campo];
+    }
+
+    if (!valor) return;
 
     cont[valor] = (cont[valor] || 0) + 1;
   });
