@@ -18,13 +18,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000000ab;
-    --card: #00000046;
+    --bg: #1a1a1a;
+    --card: #101010;
     --text: #f1f5f9;
     --border: #334155;
     --primary: #3b82f6;
     --primary-hover: #5289ff;
-
     --dropdown: #0b1220;
     --focus-ring: rgba(59, 130, 246, 0.35);
   }
@@ -32,8 +31,8 @@
 
 /* Manual override via JS (keeps the system theme as default). */
 [data-theme="light"] {
-  --bg: #f4f6fb60;
-  --card: #ffffff75;
+  --bg: #ffffff;
+  --card: #e2e2e2;
   --text: #1f2937;
   --border: #e5e7eb;
   --primary: #2563eb;
@@ -43,8 +42,8 @@
 }
 
 [data-theme="dark"] {
-  --bg: #000000ab;
-  --card: #00000046;
+  --bg: #1a1a1a;
+  --card: #101010;
   --text: #f1f5f9;
   --border: #334155;
   --primary: #3b82f6;

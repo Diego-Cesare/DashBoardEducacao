@@ -48,7 +48,7 @@ function createTable(requerente = null) {
       const line = document.createElement("tr");
 
       if (d.enviado) {
-        line.style.backgroundColor = "rgba(240, 10, 100, .3)";
+        line.style.color = "rgba(200, 71, 91, .3)";
       }
 
       line.innerHTML = `

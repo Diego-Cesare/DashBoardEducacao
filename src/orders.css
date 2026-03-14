@@ -8,7 +8,7 @@
 }
 
 body {
-  background: radial-gradient(circle, var(--border) 0%, var(--bg) 100%);
+  background-color: var(--bg);
   padding: 10px;
 }
 
@@ -16,17 +16,27 @@ header {
   display: flex;
   align-items: center;
   gap: 20px;
-  border-bottom: dashed 1px #cccccc2d;
   padding: 10px 0px;
   margin-bottom: 20px;
+  background-color: var(--card);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 header a {
   text-decoration: none;
   background-color: var(--primary);
-  padding: 6px 10px;
+  padding: 6px 20px;
+  min-width: 120px;
   border-radius: 6px;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+i {
+  font-size: 1.5rem;
 }
 
 main {
@@ -54,10 +64,19 @@ main {
   padding: 8px 10px;
   border-radius: 6px;
   margin-bottom: 20px;
+  font-size: 1rem;
   background: #2563eb;
   border: none;
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button:hover,
+a:hover {
+  background-color: var(--primary-hover);
 }
 
 ul {
@@ -80,6 +99,7 @@ li {
 
 li:hover {
   background-color: var(--primary-hover);
+  transform: translateX(10px);
 }
 
 li:active {
@@ -105,11 +125,12 @@ td {
   text-align: left;
   font-size: 1rem;
   font-weight: 400;
+  cursor: default;
 }
 
 th {
   padding: 10px;
-  background-color: var(--bg);
+  background-color: var(--card);
   color: var(--primary-hover);
   font-size: 1rem;
   font-weight: 600;
@@ -129,12 +150,13 @@ table button {
 }
 
 table button:nth-child(1) {
-  color: rgb(82, 255, 47);
+  color: rgb(179, 255, 164);
 }
 table button:nth-child(2) {
-  color: rgb(255, 47, 92);
+  color: rgb(255, 151, 173);
 }
 
 table button:hover {
+  background-color: transparent;
   transform: scale(1.1);
 }

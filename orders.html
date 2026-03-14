@@ -21,35 +21,40 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
     />
+    <link rel="stylesheet" href="./src/default.css" />
     <link rel="stylesheet" href="src/orders.css" />
   </head>
   <body>
-    <header>
-      <h1>Requizições de Manutenção</h1>
-      <a href="index.html">Voltar</a>
-    </header>
-    <main>
-      <div class="sidebar">
-        <h1>Unidades</h1>
-        <button id="show-all">Todos os pedidos</button>
-        <ul id="add-unit"></ul>
-      </div>
-      <div class="order-container">
-        <table id="order-table">
-          <thead>
-            <tr>
-              <th>Requerente</th>
-              <th>Assunto</th>
-              <th>Descrição</th>
-              <th>Data</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
+    <div class="container">
+      <header>
+        <h1>Requizições de Manutenção</h1>
+        <a href="index.html"><i class="ph ph-caret-circle-left"></i> Voltar</a>
+      </header>
+      <main>
+        <div class="sidebar">
+          <h1>Unidades</h1>
+          <button id="show-all">
+            <i class="ph ph-list-dashes"></i> Todos os pedidos
+          </button>
+          <ul id="add-unit"></ul>
+        </div>
+        <div class="order-container">
+          <table id="order-table">
+            <thead>
+              <tr>
+                <th>Requerente</th>
+                <th>Assunto</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
 
-          <tbody id="order-data"></tbody>
-        </table>
-      </div>
-    </main>
+            <tbody id="order-data"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
     <script type="module" src="./src/order.js"></script>
   </body>
 </html>
