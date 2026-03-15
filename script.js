@@ -129,21 +129,22 @@ function aplicarFiltros() {
 }
 
 function atualizarKPIs(lista) {
+  const normalizar = (v) => (v || "").toString().trim().toLowerCase();
+
   document.getElementById("totalManut").textContent = lista.length;
 
   document.getElementById("totalUnidades").textContent = new Set(
-    lista.map((r) => r.unidade),
+    lista.map((r) => normalizar(r.unidade)),
   ).size;
 
   document.getElementById("totalEquipes").textContent = new Set(
-    lista.map((r) => r.equipe),
+    lista.map((r) => normalizar(r.equipe)),
   ).size;
 
   document.getElementById("totalTipos").textContent = new Set(
-    lista.map((r) => r.tipo),
+    lista.map((r) => normalizar(r.tipo)),
   ).size;
 }
-
 function gerarGrafico(canvas, dados, chart) {
   const labels = Object.keys(dados);
   const values = Object.values(dados);
@@ -275,16 +276,18 @@ onSnapshot(collection(db, "registros"), (snapshot) => {
   registros = [];
 
   snapshot.forEach((doc) => {
-    registros.push(doc.data());
+    const dados = doc.data();
+
+    if (!dados) return;
+
+    // ignora registros completamente vazios
+    if (!dados.unidade && !dados.equipe && !dados.tipo) return;
+
+    registros.push(dados);
   });
 
-  if (filtroUnidade.options.length === 1) {
-    carregarUnidades();
-  }
-
-  if (filtroEquipe.options.length === 1) {
-    carregarEquipes();
-  }
+  if (filtroUnidade.options.length === 1) carregarUnidades();
+  if (filtroEquipe.options.length === 1) carregarEquipes();
 
   atualizarDashboard();
   adicionarEquipeNum();

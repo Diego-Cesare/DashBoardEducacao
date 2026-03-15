@@ -10,6 +10,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -90,69 +91,88 @@ h3 p {
   flex: 1 1 150px;
 }
 
-.cards-team ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  padding: 0;
-}
-
-ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  padding: 0px;
-  margin-bottom: 20px;
-}
-
-ul li {
-  list-style: none;
-  height: 96px;
-  padding: 16px 20px;
-  background: linear-gradient(40deg, var(--card) 0%, var(--card) 100%);
-  border-radius: 10px;
+section {
   display: flex;
-  gap: 20px;
   align-items: center;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.24);
+  justify-content: space-between;
 }
 
-ul li img {
-  max-width: 64px;
-  max-height: 64px;
+.cards-team {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.member-team {
+  overflow: hidden;
+  background-color: var(--card);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 120px;
   border-radius: 10px;
 }
 
-ul li .content {
-  width: 100%;
+.member-team img {
+  width: 74px;
+  height: 74px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: double 5px var(--primary);
+}
+
+.content {
   display: grid;
   gap: 5px;
+  width: 70%;
 }
 
-ul li .content h3 {
-  margin-bottom: 6px;
-  font-size: 0.9rem;
+.content h3 {
+  font-size: 24px;
 }
-
-ul li .content p {
-  font-size: 0.85rem;
-  opacity: 0.6;
-  line-height: 1;
+p,
+span {
+  font-size: 14px;
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  justify-content: end;
   gap: 16px;
   margin-bottom: 25px;
   background-color: transparent;
 }
 
 .kpi {
+  min-width: 250px;
+  position: relative;
+  overflow: hidden;
   background-color: var(--card);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kpi::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px circle at var(--x) var(--y),
+    var(--primary),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.kpi:hover::before {
+  opacity: 0.7;
 }
 
 .kpi h3 {
@@ -169,21 +189,24 @@ ul li .content p {
 
 .charts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 70%;
+  gap: 10px;
 }
 
 .chart-card {
+  height: 250px;
+  width: 100%;
+  overflow: auto;
   background-color: var(--card);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
-  text-align: center;
 }
 
 .chart-card h3 {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .chart-card canvas {

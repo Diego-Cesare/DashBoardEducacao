@@ -90,77 +90,76 @@
             <p id="totalTipos"></p>
           </div>
         </div>
-
-        <div class="cards-team">
-          <ul>
-            <li>
+        <section>
+          <div class="cards-team">
+            <div class="member-team">
               <img src="img/eduardo.jpg" alt="user image" />
               <div class="content">
                 <h3>Eduardo</h3>
                 <p id="eduardo-num"></p>
                 <p><b>Equipe</b>: Eron, Douglas</p>
-                <!-- <p id="eduardo-status"></p> -->
+                <p id="eduardo-status"></p>
               </div>
-            </li>
-            <li>
+            </div>
+            <div class="member-team">
               <img src="img/baco.jpg" alt="user image" />
               <div class="content">
                 <h3>Everaldo (Baco)</h3>
                 <p id="everaldo-num"></p>
                 <p><b>Equipe</b>: Membro1, Membro2</p>
-                <!-- <p id="everaldo-status"></p> -->
+                <p id="everaldo-status"></p>
               </div>
-            </li>
-            <li>
+            </div>
+            <div class="member-team">
               <img src="img/andre.jpg" alt="user image" />
               <div class="content">
                 <h3>André (Batata)</h3>
                 <p id="andre-num"></p>
                 <p><b>Equipe</b>: Membro1, Membro2</p>
-                <!-- <p id="andre-status"></p> -->
+                <p id="andre-status"></p>
               </div>
-            </li>
-            <li>
+            </div>
+            <div class="member-team">
               <img src="img/rui.jpg" alt="user image" />
               <div class="content">
                 <h3>Rui</h3>
                 <p id="rui-num"></p>
                 <p><b>Equipe</b>: Membro1, Membro2</p>
-                <!-- <p id="rui-status"></p> -->
+                <p id="rui-status"></p>
               </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="charts">
-          <div class="chart-card">
-            <h3>Unidades</h3>
-            <canvas id="graficoUnidades"></canvas>
+            </div>
           </div>
 
-          <div class="chart-card">
-            <h3>Equipes</h3>
-            <canvas id="graficoEquipes"></canvas>
-          </div>
+          <div class="charts">
+            <div class="chart-card">
+              <h3>Unidades</h3>
+              <canvas id="graficoUnidades"></canvas>
+            </div>
 
-          <div class="chart-card">
-            <h3>Tipos</h3>
-            <canvas id="graficoTipos"></canvas>
-          </div>
+            <div class="chart-card">
+              <h3>Equipes</h3>
+              <canvas id="graficoEquipes"></canvas>
+            </div>
 
-          <div class="chart-card">
-            <h3>Meses</h3>
-            <canvas id="graficoMes"></canvas>
+            <div class="chart-card">
+              <h3>Tipos</h3>
+              <canvas id="graficoTipos"></canvas>
+            </div>
+
+            <div class="chart-card">
+              <h3>Meses</h3>
+              <canvas id="graficoMes"></canvas>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
       <div class="tabela">
         <div class="tabela-header">
           <h1>Histórico de Manutenções</h1>
           <div class="buttons">
-            <button class="show-table" id="showtable">
+            <a href="#tabelaRegistros" class="show-table" id="showtable">
               <i class="ph ph-caret-down"></i>
-            </button>
+            </a>
             <button class="hidden" id="exportarExcel">Exportar Excel</button>
           </div>
         </div>

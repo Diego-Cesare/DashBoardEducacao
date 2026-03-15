@@ -63,7 +63,7 @@ select {
 
 select option,
 select optgroup {
-  background-color: var(--dropdown);
+  background-color: var(--bg);
   color: var(--text);
 }
 
