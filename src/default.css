@@ -1,3 +1,72 @@
+a,
+button,
+p,
+h1 {
+  color: var(--text);
+}
+
+button {
+  background: var(--primary);
+  border: none;
+  color: var(--text);
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button i {
+  font-size: 1.5rem;
+}
+
+button:hover,
+a:hover {
+  background-color: var(--primary-hover);
+}
+
+select,
+input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  width: 200px;
+}
+
+select,
+input {
+  outline: none;
+}
+
+select:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 34px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text) 50%),
+    linear-gradient(135deg, var(--text) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% + 1px),
+    calc(100% - 12px) calc(50% + 1px);
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+select option,
+select optgroup {
+  background-color: var(--dropdown);
+  color: var(--text);
+}
+
 .container {
   background-color: var(--bg);
   backdrop-filter: blur(50px);
@@ -5,4 +74,30 @@
   border-radius: 20px;
   margin: auto;
   box-shadow: 0px 0px 10px 1px #00000059;
+}
+
+.tabela::-webkit-scrollbar,
+ul::-webkit-scrollbar,
+table::-webkit-scrollbar {
+  height: 10px;
+  width: 5px;
+}
+
+.tabela::-webkit-scrollbar-track,
+ul::-webkit-scrollbar-track,
+table::-webkit-scrollbar-track {
+  background: var(--card);
+  border-radius: 10px;
+}
+
+.tabela::-webkit-scrollbar-thumb,
+ul::-webkit-scrollbar-thumb table::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.tabela::-webkit-scrollbar-thumb:hover,
+ul::-webkit-scrollbar-thumb:hover,
+table::-webkit-scrollbar-thumb:hover {
+  background: #1a6a68;
 }

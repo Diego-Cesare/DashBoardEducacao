@@ -48,7 +48,9 @@ function createTable(requerente = null) {
       const line = document.createElement("tr");
 
       if (d.enviado) {
-        line.style.color = "rgba(200, 71, 91, .3)";
+        line.style.color = "rgba(230, 111, 111, 1)";
+      } else {
+        line.style.color = "var(--text)";
       }
 
       line.innerHTML = `

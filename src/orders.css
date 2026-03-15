@@ -42,17 +42,16 @@ i {
 main {
   display: flex;
   gap: 10px;
-  height: 95dvh;
+  height: 84dvh;
+  overflow: hidden;
 }
 
 .sidebar {
-  background-color: var(--card);
   display: flex;
   flex-direction: column;
+  border-right: solid 1px #cccccc2d;
   padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 1px #00000059;
-  width: 220px;
+  width: 250px;
 }
 
 .sidebar h1 {
@@ -63,33 +62,37 @@ main {
 .sidebar button {
   padding: 8px 10px;
   border-radius: 6px;
-  margin-bottom: 20px;
+  margin: 10px;
   font-size: 1rem;
-  background: #2563eb;
+  background: var(--primary);
   border: none;
   color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
 }
 
-button:hover,
+/* button:hover,
 a:hover {
   background-color: var(--primary-hover);
-}
+} */
 
 ul {
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 10px;
+  min-height: 65dvh;
+  padding: 0 10px;
+  overflow-y: scroll;
 }
 
 li {
   list-style: none;
   cursor: pointer;
   background-color: var(--bg);
+  color: var(--text);
   padding: 8px;
   border-radius: 6px;
   font-size: 1rem;
@@ -99,7 +102,7 @@ li {
 
 li:hover {
   background-color: var(--primary-hover);
-  transform: translateX(10px);
+  color: var(--bg);
 }
 
 li:active {
@@ -112,26 +115,27 @@ li:active {
 }
 
 table {
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-  padding: 7px;
+  padding: 0px 10px;
   background-color: var(--card);
-  border-radius: 10px;
-  border: 1px solid transparent;
-  text-align: left;
+  border-bottom: solid 2px var(--border);
+  text-align: start;
   font-size: 1rem;
   font-weight: 400;
   cursor: default;
 }
 
 th {
-  padding: 10px;
-  background-color: var(--card);
-  color: var(--primary-hover);
+  padding: 20px;
+  background-color: var(--primary);
+  color: var(--text);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -150,10 +154,10 @@ table button {
 }
 
 table button:nth-child(1) {
-  color: rgb(179, 255, 164);
+  color: rgb(103, 133, 97);
 }
 table button:nth-child(2) {
-  color: rgb(255, 151, 173);
+  color: rgb(117, 60, 73);
 }
 
 table button:hover {

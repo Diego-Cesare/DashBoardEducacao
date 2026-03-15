@@ -23,17 +23,10 @@ const dataFim = document.getElementById("data-fim");
 
 // Theme: default follows system; button sets manual override (persisted).
 const THEME_STORAGE_KEY = "dashboard-theme"; // "light" | "dark" | "system"
-const themeToggleBtn = document.getElementById("themeToggle");
 const systemThemeMql = window.matchMedia("(prefers-color-scheme: dark)");
 
 function getSystemTheme() {
   return systemThemeMql.matches ? "dark" : "light";
-}
-
-function getStoredThemeMode() {
-  const v = localStorage.getItem(THEME_STORAGE_KEY);
-  if (v === "light" || v === "dark" || v === "system") return v;
-  return "system";
 }
 
 function setStoredThemeMode(mode) {
@@ -52,19 +45,6 @@ function applyThemeMode(mode) {
 
 function getEffectiveTheme(mode) {
   return mode === "system" ? getSystemTheme() : mode;
-}
-
-function updateThemeToggleLabel(mode) {
-  if (!themeToggleBtn) return;
-
-  if (mode === "system") {
-    const effective = getSystemTheme();
-    themeToggleBtn.textContent =
-      effective === "dark" ? "Modo Claro (Auto)" : "Modo Escuro (Auto)";
-    return;
-  }
-
-  themeToggleBtn.textContent = mode === "dark" ? "Modo Claro" : "Modo Escuro";
 }
 
 const cores = [
@@ -387,28 +367,3 @@ btnExportar.addEventListener("click", () => {
 
   XLSX.writeFile(workbook, "manutencoes.xlsx");
 });
-
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener("click", (event) => {
-    const currentMode = getStoredThemeMode();
-
-    // Shift+click: return to system theme mode.
-    if (event.shiftKey) {
-      setStoredThemeMode("system");
-      applyThemeMode("system");
-      return;
-    }
-
-    const effective = getEffectiveTheme(currentMode);
-    const nextMode = effective === "dark" ? "light" : "dark";
-    setStoredThemeMode(nextMode);
-    applyThemeMode(nextMode);
-  });
-}
-
-// Update in real-time when system theme changes (only if in system mode).
-systemThemeMql.addEventListener("change", () => {
-  if (getStoredThemeMode() === "system") applyThemeMode("system");
-});
-
-applyThemeMode(getStoredThemeMode());
